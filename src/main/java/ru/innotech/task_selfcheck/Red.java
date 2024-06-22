@@ -1,14 +1,22 @@
 package ru.innotech.task_selfcheck;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
 
 @Component
 public class Red implements Colorable {
-    public static Red ownColor = new Red();
+    private Colorable nextColor;
+
+    @Autowired
+    @Qualifier("yellow")
+    public void setNextColor(Colorable nextColor) {
+        this.nextColor = nextColor;
+    }
 
     @Override
     public Colorable getNextColor() {
-        return Yellow.ownColor;
+        return nextColor;
     }
 
     @Override

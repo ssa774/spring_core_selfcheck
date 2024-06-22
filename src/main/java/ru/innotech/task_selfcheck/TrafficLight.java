@@ -17,7 +17,7 @@ public class TrafficLight{
                 '}';
     }
     @Autowired
-    @Qualifier("yellow")
+    @Qualifier("first") //на желтом повесила квалифаер first, пробросился сюда (можно сменить на любой другой переносом first на другой цвет)
     public void setCurColor(Colorable curColor) {
         this.curColor = curColor;
     }
